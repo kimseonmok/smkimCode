@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class WaaHelp {
     private String helpId;
-
+    private String helpId2;
     private String scrNm;
 
     private String scrUrl;
