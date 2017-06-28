@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+  <!-- 요청서 관리 메시지 -->
+  <entry key="REQ.STWD.COMM"><![CDATA[* 단어물리명에는 단어영문의 약어를 입력하셔야 하고, 영문의미는 단어의 영문설명으로 입력하셔야 합니다.]]></entry>
+  <entry key="REQ.DMN.COMM"><![CDATA[* 도메인명을 ;로 분리하여 입력한후 '분리'버튼을 클릭하시면 자동으로 분리되어 단어구분에 입력됩니다.(ex)개인;법인;구분코드)]]></entry>
+  <entry key="REQ.ITEM.COMM"><![CDATA[* 항목을 ;로 분리하여 입력한후 '분리'버튼을 클릭하시면 자동으로 분리되어 단어구분에 입력됩니다.<br>* 마지막단어에는 도메인으로 입력하셔야 됩니다. (예: 가상;계약자;계좌번호)]]></entry>
+  <entry key="REQ.MSG.COMM"><![CDATA[* 메시지코드는 8자리이며 형식은 PREFIX[M] + 유형구분[1] + 업무구분[2] + 일련번호[4]입니다.<br>
+* 일련번호는 등록자가 정의해야하며, 세부업무구분이 필요할 경우 프로그램ID와 동일하게 [기능분해매핑번호]를 활용하시기 바랍니다.<br>
+* 메시지내용은 간결하고 명확하게 작성해주시길 바라며, 특히 오류메시지인 경우에는 가급적 오류내용과 처리방법까지 기술하시기 바랍니다. ]]></entry>
+  <entry key="REQ.SUBMIT.COMM"><![CDATA[* 결재자가 비어있는 경우에는 결재요청할 결재자를 선택해야 합니다.<br>* 한레벨에 결재자가 다수일경우에는 레벨별로 최소 1명에게 결재를 요청해야 합니다. ]]></entry>
+  <entry key="REQ.SUBMIT"><![CDATA[결재자에게 결재요청 하였습니다.]]></entry>
+  <entry key="REQ.SUBMIT.ERR"><![CDATA[결재자에게 결재요청을 실패하였습니다.]]></entry>
+  <entry key="REQ.APPROVE"><![CDATA[결재처리를 하였습니다.]]></entry>
+  <entry key="REQ.APPROVE.VALID"><![CDATA[검토상태가 승인 또는 반려인 경우만 결재 가능합니다.<br>검토상태를 확인중이니 잠시 기다려 주십시요.]]></entry>
+  <entry key="REQ.APPROVE.PRC"><![CDATA[결재를 처리중이니 잠시 기다려 주십시요.]]></entry>
+  <entry key="REQ.PRC.LOAD"><![CDATA[처리중이니 잠시 기다려 주십시요.]]></entry>
+  <entry key="REQ.APPROVE.ERR"><![CDATA[결재처리 중 오류가 발생하였습니다.]]></entry>
+  <entry key="REQ.APPROVE.REJECT"><![CDATA[전체반려시 반려사유를 입력 후 확인을 선택 하십시요.]]></entry>
+  <entry key="REQ.APPRCHK.ERR"><![CDATA[{0}님은 현재 요청서의 결재권한이 없습니다.<br>결재권한이 있는 사용자로 로그인 하십시요.]]></entry>
+  <entry key="REQ.SELDMN.ERR"><![CDATA[도메인이 선택되지 않았습니다.<br>코드를 등록할 도메인을 먼저 선택하세요.]]></entry>
+  <entry key="REQ.DIV.ITEM"><![CDATA[자동생성이 완료되었습니다.]]></entry>
+  <entry key="REQ.DIV.ERR"><![CDATA[자동생성이 실패했습니다.]]></entry>
+  <entry key="REQ.DEL.APPROVE"><![CDATA[결재 완료된 요청건은 삭제할 수 없습니다.<br>관리자에게 문의하세요.]]></entry>
+  <entry key="REQ.DEL.REQUEST"><![CDATA[요청중인 요청건은 삭제할 수 없습니다.]]></entry>
+  <entry key="REQ.TMP.COMM"><![CDATA[* 매핑정의서ID는 타겟(TOBE)테이블물리명+'_'+매핑일련번호로 자동 치환됩니다.<br>* 테이블매핑유형이 NEW, INITIAL 경우 저장시 소스(ASIS) 정보는 공백으로  치환됩니다.<br>* 응용담당자는 현재 로그인한 아이디로 자동입력됩니다.]]></entry>
+  <entry key="REQ.CMP.COMM"><![CDATA[* 컬럼매핑유형이 신규인 경우 저장시 소스(ASIS) 정보는 공백으로  치환됩니다.<br>* 컬럼매핑유형이 신규이면서 NotNull 여부가 Y인경우 컬럼초기값을 입력해야합니다.<br>* 응용담당자는 현재 로그인한 아이디로 자동입력됩니다.]]></entry>
+  <entry key="REQ.CMP.CODE"><![CDATA[* 코드전환유형이 TOBE신규코드 인 경우 저장시 소스(ASIS) 정보는 공백으로  치환됩니다.<br>* 응용담당자는 현재 로그인한 아이디로 자동입력됩니다.]]></entry>
+  <entry key="REQ.CDVALDEL"><![CDATA[요청서내 모든 유효값이 삭제요청 처리됩니다.<br>계속 하시겠습니까?]]></entry>
+  <entry key="REQ.CDVALDEL.ERR"><![CDATA[요청서가 임시저장 상태일 경우에만 삭제요청 가능합니다.<br>유효값을 삭제할 도메인을 먼저 등록하세요.]]></entry>
+  <entry key="REQ.SUBMIT.INIT"><![CDATA[검증결과가 등록가능인 데이터만 등록요청 할 수 있습니다.<br>검증결과를 확인중이니 잠시 기다려 주십시요.]]></entry>
+  <entry key="REQ.NO.CHANG"><![CDATA[변경요청 할 대상이 없습니다.<br>내용을 선택 후 [변경요청]버튼을 클릭 하십시요.]]></entry>
+  <entry key="REQ.NO.DEL"><![CDATA[삭제요청 할 대상이 없습니다.<br>내용을 선택 후 [삭제요청]버튼을 클릭 하십시요.]]></entry>
+  <entry key="REQ.NO.TGTSCH"><![CDATA[타겟 DB를 선택하여 주십시오.]]></entry>
+  
+
+  <!-- 버튼메세지 리스트 -->  
+  <entry key="BTN.READ"><![CDATA[조회]]></entry>
+  <entry key="BTN.LIST"><![CDATA[목록]]></entry>
+  <entry key="BTN.CREATE"><![CDATA[글쓰기]]></entry>
+  <entry key="BTN.SAVE"><![CDATA[저장]]></entry>
+  <entry key="BTN.UPDATE"><![CDATA[수정]]></entry>
+  <entry key="BTN.DELETE"><![CDATA[삭제]]></entry>
+  <entry key="BTN.APPLY"><![CDATA[답글작성]]></entry>
+  
+  <!-- 게시판 메세지 리스트 -->
+  <entry key="BBS.SUBJECT"><![CDATA[제목]]></entry>
+  <entry key="BBS.CONTENTS"><![CDATA[내용]]></entry>
+  <entry key="BBS.ERRAUTH"><![CDATA[게시물 작성자가 아닙니다.]]></entry>
+  <entry key="BBS.REQUIRED"><![CDATA[{0}는(은) 필수입력 항목입니다.]]></entry>
+  
+  <!-- 파일 메세지 리스트 -->
+  <entry key="FILE.LIST"><![CDATA[첨부파일목록]]></entry>
+  <entry key="FILE.ATTACH"><![CDATA[파일첨부]]></entry>
+  <entry key="FILE.OVERFLOW"><![CDATA[더 이상 파일을 첨부할 수 없습니다.]]></entry>
+
+  <!-- 일반 메세지 리스트 -->
+  <entry key="INF.DEL"><![CDATA[작성자가 이미 삭제한 자료입니다.]]></entry>
+
+  <!-- 일반 메세지 리스트 -->
+  <entry key="MSG.SELECT"><![CDATA[{0} 을(를) 선택하세요.]]></entry> 
+  <entry key="MSG.INPUT"><![CDATA[{0} 을(를) 입력하세요.]]></entry> 
+  <entry key="MSG.TEST"><![CDATA[첫번째 변수 : {0} 두번째변수 : {1}<br> 세번째변수 : {2} 을(를) 입력하세요.]]></entry> 
+  <entry key="MSG.SAVE"><![CDATA[저장 되었습니다.]]></entry>
+  <entry key="MSG.DEL"><![CDATA[삭제 되었습니다.]]></entry>
+  <entry key="MSG.RQST"><![CDATA[등록요청 되었습니다.]]></entry>
+  <entry key="MSG.REMOVE"><![CDATA[전체취소 되었습니다.]]></entry>
+  <entry key="MSG.APPR"><![CDATA[등록 되었습니다.]]></entry>
+  <entry key="MSG.NODATA"><![CDATA[자료가 없습니다. 다른 검색조건을 선택해주세요]]></entry>
+  <entry key="MSG.TABLE"><![CDATA[테이블 담당자를 변경하였습니다.]]></entry>
+  <entry key="MSG.QUARTZ"><![CDATA[분석실행이 요청되었습니다.]]></entry>
+  <entry key="MSG.CONNTEST"><![CDATA[접속테스트가 완료되었습니다.]]></entry>
+  <entry key="MSG.DELDBMS"><![CDATA[스키마 삭제후 DBMS삭제 가능합니다.]]></entry>
+  <entry key="MSG.DELDBSCH"><![CDATA[삭제할 스키마에 DDL테이블이 존재합니다.]]></entry>
+  
+  <!-- 에러 메세지 리스트 -->
+  <entry key="ERR.SEARCH"><![CDATA[조회를 실패했습니다.]]></entry>
+  <entry key="ERR.SAVE"><![CDATA[저장을 실패했습니다.]]></entry>  
+  <entry key="ERR.DEL"><![CDATA[삭제를 실패했습니다.]]></entry>
+  <entry key="ERR.RQST"><![CDATA[등록요청을 실패했습니다.]]></entry>
+  <entry key="ERR.APPR"><![CDATA[등록을 실패했습니다.]]></entry>
+  <entry key="ERR.CHKSAVE"><![CDATA[저장할 대상이 없습니다.<br>대상을 추가하거나 변경 후 저장하세요.]]></entry>
+  <entry key="ERR.CHKSAVELIST"><![CDATA[저장할 대상이 없습니다.<br>대상을 선택 후 저장하세요.]]></entry>
+  <entry key="ERR.CHKDEL"><![CDATA[삭제할 대상이 없습니다.<br>삭제할 대상을 체크 후 삭제하세요.]]></entry>
+  <entry key="ERR.TBLSEL"><![CDATA[선택한 테이블이 없습니다.<br>먼저 테이블을 추가하거나 선택 후 컬럼을 추가 하십시요.]]></entry>
+  <entry key="ERR.IDXSEL"><![CDATA[선택한 인덱스가 없습니다.<br>먼저 인덱스를 추가하거나 선택 후 컬럼을 추가 하십시요.]]></entry>
+  <entry key="ERR.SEARCHWORD"><![CDATA[검색할 단어가 없습니다.<br>검색할 단어를 입력 하십시요.]]></entry>
+  <entry key="ERR.SEARCHTYPE"><![CDATA[검색타입을 선택하십시요.]]></entry>
+  <entry key="ERR.EXCEL.DOWN"><![CDATA[엑셀 다운로드할 대상이 없습니다.<br>내용을 조회 후 엑셀다운로드를 선택하십시요.]]></entry>
+  <entry key="ERR.APPLY"><![CDATA[적용할 대상이 없습니다.<br>내용을 선택 후 [적용]버튼을 클릭하거나 내용을 더블클릭 하십시요.]]></entry>
+  <entry key="ERR.TABLE"><![CDATA[테이블 담당자 변경이 실패했습니다.]]></entry>
+  <entry key="ERR.SUBMIT"><![CDATA[등록가능한 데이터가 없습니다. 검증결과를 확인하십시오.]]></entry>
+  <entry key="ERR.SUBMIT2"><![CDATA[등록불가능한 데이터가 존재합니다.<br> 검증결과를 확인하십시오.]]></entry>
+  <entry key="ERR.PKYN"><![CDATA[PK여부를 체크하시면 PK순서도 입력하십시요.]]></entry>
+  <entry key="ERR.NOTNULL"><![CDATA[PK여부를 체크하시면 NOT NULL 여부도 체크하십시요.]]></entry>
+  <entry key="ERR.OBJSEL"><![CDATA[설정된 내역이 없습니다.]]></entry>
+  <entry key="ERR.DDL.NODATA"><![CDATA[DDL 테이블과 관련된 컬럼정보 또는 DB정보가 없습니다.]]></entry>
+  <entry key="ERR.BSCLVL"><![CDATA[{0} 레벨은 {1}을(를) 넘을 수 없습니다.<br> {0} 레벨은 기본정보레벨관리 페이지에서 변경하세요.]]></entry>
+  <entry key="ERR.DUP"><![CDATA[저장에 실패했습니다.<br>동일한 데이터가 존재합니다.]]></entry>
+  <entry key="ERR.DUP.INFO"><![CDATA[ 행에 중복된 인포타입명이 존재합니다.<br>중복된 행을 제거해 주십시요.]]></entry>
+  <entry key="ERR.DUP.INFOMAP"><![CDATA[ 행에 중복된 [도메인그룹+인포타입]이 존재합니다.<br>중복된 행을 제거해 주십시요.]]></entry>
+  <entry key="ERR.DUP.DBMAP"><![CDATA[ 중복된 권한명이 존재합니다.]]></entry>
+  
+  <entry key="ERR.CONN.TEST"><![CDATA[접속 테스트할 DBMS를 선택해 주세요.]]></entry>
+  <entry key="ERR.INUSESUBJ"><![CDATA[주제영역 사용중입니다. 삭제할 수 없습니다.]]></entry>
+  
+        <!-- 사용자 정의 메시지 -->
+  <entry key="ERR.EMPTY"><![CDATA[{0}]]></entry>
+  <entry key="ERR.APPROVE"><![CDATA[검토상태 중 승인이나 반려가 선택되지 않았습니다.<br>검토상태를 모두 변경 후 결재처리 하십시요.]]></entry>
+  <entry key="ERR.APPROVE.SDITM"><![CDATA[표준용어 탭의 검토상태 중 승인이나 반려가 선택되지 않았습니다.<br>검토상태를 모두 변경 후 결재처리 하십시요.]]></entry>
+  <entry key="ERR.APPROVE.DMN"><![CDATA[표준도메인 탭의 검토상태 중 승인이나 반려가 선택되지 않았습니다.<br>검토상태를 모두 변경 후 결재처리 하십시요.]]></entry>
+  <entry key="ERR.APPROVE.WORD"><![CDATA[표준단어 탭의 검토상태 중 승인이나 반려가 선택되지 않았습니다.<br>검토상태를 모두 변경 후 결재처리 하십시요.]]></entry>
+  <entry key="ERR.APPROVE.CNF"><![CDATA[검토상태 중 승인이나 반려가 선택되지 않았습니다.<br>전체승인은 결재대상 전체를 승인처리합니다.<br>전체반려는 결재대상 전체를 반려처리합니다.<br>개별적으로 검토상태를 변경하려면 취소를 선택하십시요.]]></entry>
+  <entry key="ERR.CHKAPPR"><![CDATA[결재처리 할 대상이 없습니다.<br>결재 대상이 있는지 확인하십시요.]]></entry>
+  <entry key="ERR.REJECT"><![CDATA[검토상태가 반려일 경우 검토내용을 적어주시기 바랍니다.]]></entry>
+  <entry key="ERR.NOTABLE"><![CDATA[컬럼을 등록할 테이블 <br><font color="red">{0}</font><br> 이(가) 존재하지 않습니다.<br>테이블을 먼저 등록하십시요.]]></entry>
+  <entry key="ERR.QUARTZ"><![CDATA[스케줄서버가 시작되지 않았습니다.<br>관리자에게 문의하십시오.]]></entry>
+  <entry key="ERR.PRFSCH"><![CDATA[진단대상 정보가 존재하지 않습니다.]]></entry>
+  <entry key="ERR.ACCESS"><![CDATA[페이지 접근권한이 없습니다.<br>관리자에게 문의하십시오.]]></entry>
+  <entry key="ERR.NOSELECT"><![CDATA[선택된 내용이 없습니다.<br>변경할 항목을 클릭 후 검토내용을 반영하여 주십시오.]]></entry>
+  <entry key="ERR.PDGAP"><![CDATA[ERD갭분석을 실행한 후 등록해 주십시오.]]></entry>
+  
+  
+  <!-- 확인 메세지 리스트 -->
+  <entry key="CNF.SAVE"><![CDATA[저장 하시겠습니까?]]></entry>
+  <entry key="CNF.GRID.SAVE"><![CDATA[그리드에 저장할 내용이 있습니다.<br>저장 하시겠습니까?]]></entry>
+  <entry key="CNF.DEL"><![CDATA[삭제 하시겠습니까?]]></entry>
+  <entry key="CNF.DEL.CODE"><![CDATA[선택한 공통코드를 삭제시 포함된 상세코드도 모두 삭제됩니다.<br>삭제 하시겠습니까?]]></entry>
+  <entry key="CNF.DEL.TBL"><![CDATA[선택한 테이블을 삭제시 포함된 컬럼도 모두 삭제됩니다.<br>삭제 하시겠습니까?]]></entry>
+  <entry key="CNF.DEL.SUBJ"><![CDATA[선택한 주제영역에 포함된 하위주제영역도 삭제됩니다.<br>삭제 하시겠습니까?]]></entry>
+  <entry key="CNF.UPDATE"><![CDATA[수정 하시겠습니까?]]></entry>
+  <entry key="CNF.RQST"><![CDATA[등록요청을 하시겠습니까?]]></entry>
+  <entry key="CNF.APPR"><![CDATA[결재처리를 하시겠습니까?]]></entry>
+  <entry key="CNF.LOGIN"><![CDATA[로그인 정보가 없습니다.<br>로그인 화면으로 이동하시겠습니까?]]></entry>
+  <entry key="CNF.LOGOUT"><![CDATA[<span>{0}님</span><br>로그아웃 하시겠습니까?]]></entry>
+  <entry key="CNF.TABLE.UPDATE"><![CDATA[테이블 담당자를 변경 하시겠습니까?]]></entry>
+  <entry key="CNF.SUBMIT"><![CDATA[검증결과가 등록가능인 데이터만 저장할 수 있습니다.<br>저장 하시겠습니까?]]></entry>
+  <entry key="CNF.APRGUSERSAVE"><![CDATA[\"<span>{0}</span>\" 결재그룹에 저장 하시겠습니까?]]></entry>
+  <entry key="CNF.CONN.TEST"><![CDATA[접속 테스트를 진행하시겠습니까?]]></entry>
+  
+  <entry key="CNF.LOGIN"><![CDATA[로그인 정보가 없습니다.<br>로그인 화면으로 이동하시겠습니까?]]></entry>
+  
+  
+  <!-- FROM 메세지 리스트 -->
+  <entry key="FRM.SAVE"><![CDATA[저장]]></entry>
+  <entry key="FRM.RQST"><![CDATA[요청]]></entry>
+  <entry key="FRM.APPR"><![CDATA[검토처리]]></entry>
+  
+  <!-- FROM 검증 리스트 -->
+  <entry key="VALID.REQUIRED"><![CDATA[필수입력항목입니다. 내용을 입력해 주세요.]]></entry>
+  <entry key="VALID.NUMBER"><![CDATA[숫자 입력항목입니다. 숫자만 입력해 주세요.]]></entry>
+  <entry key="VALID.PRFREQUIRED"><![CDATA[진단대상을 선택하십시오.]]></entry>
+  <entry key="VALID.SHORTREQUIRED"><![CDATA[필수입력항목입니다.]]></entry>
+  <entry key="VALID.LNMCRIDS"><![CDATA[표준용어논리명과 도메인논리명이 틀릴경우<br> 논리명기준구분과 물리명기준구분을 작성해야 합니다.]]></entry>
+  
+  <!--  표준 도메인 관련 메세지 -->
+  <entry key="DMN.DUPWORD"><![CDATA[한글이 중복된 단어가 존재합니다.<br>도메인자동분할을 통해 선택하겠습니까?]]></entry>
+
+  <!--  표준 항목 관련 메세지 -->
+  <entry key="ITEM.DUPWORD"><![CDATA[한글이 중복된 단어가 존재합니다.<br>항목자동분할을 통해 선택하겠습니까?]]></entry>
+  <entry key="ITEM.DUPDMN"><![CDATA[한글이 중복된 도메인이 존재합니다.<br>도메인검색을 통해 선택하겠습니까?]]></entry>
+  
+
+  
+  
+  
+  <!--  DQ 프로파일 등록 메시지 리스트 -->
+  <entry key="PRF.KNDCHK"><![CDATA[{0}할 프로파일을 선택하십시오.]]></entry>
+
+  
+  
+  <!-- 기타 메세지 리스트 -->
+  <entry key="ETC.SAVE"><![CDATA[저장은 {0}개까지 가능합니다.]]></entry>
+  <entry key="ETC.RQST"><![CDATA[등록요청시 결재자를 선택하셔야 합니다.]]></entry>
+  <entry key="ETC.APPR"><![CDATA[검토처리를 하시면 요청내용이 처리됩니다.]]></entry>
+  <entry key="ETC.POP"><![CDATA[- 더블클릭을 하시면 선택항목이 적용됩니다.]]></entry>
+  <entry key="ETC.RQST.POP"><![CDATA[- 검색단어 입력시 해당단어를 포함하는 내용을 선택 할 수 있습니다.<br>- 요청할 대상을 선택 체크 후 변경요청이나 삭제요청 버튼을 클릭하시면 요청됩니다.<br>- 대상을 더블클릭하면 선택이 체크 되거나 해제됩니다.]]></entry>
+  <entry key="ETC.COMM"><![CDATA[- 클릭을 하시면 상세조회를 하실 수 있습니다. 데이터를 복사하시려면 복사할 컬럼을 선택하시고 <span style="font-weight:bold; color:#444444;">Ctrl + C</span>를 사용하시면 됩니다.]]></entry>
+  <entry key="ETC.COMM2"><![CDATA[- 더블 클릭을 하시면 상세조회를 하실 수 있습니다. 데이터를 복사하시려면 복사할 컬럼을 선택하시고 <span style="font-weight:bold; color:#444444;">Ctrl + C</span>를 사용하시면 됩니다.]]></entry>
+  <entry key="ETC.READY"><![CDATA[컨텐츠 준비중입니다.]]></entry>
+  <entry key="ETC.EXCEL"><![CDATA[1. 엑셀올리기 버튼을 클릭해서 엑셀파일을 선택합니다.<br>2. 변경할 내용은 직접 변경할 수 있습니다.<br>3. 엑셀저장 버튼을 클릭하면 그리드 내용이 저장됩니다.]]></entry>
+  <entry key="ETC.POP.CDTSF"><![CDATA[ - 도메인을 선택 후 신규/변경요청 버튼을 클릭하면 해당 도메인에 등록된 코드값이 자동으로 요청서로 입력됩니다. <br> - 요청버튼 클릭 전에 이관요청할 타겟DB를 선택하여 주십시오.]]></entry>
+  
+  
+  
+</properties> 

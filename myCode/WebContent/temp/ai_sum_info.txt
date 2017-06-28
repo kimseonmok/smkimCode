@@ -1,0 +1,9 @@
+> SUMMARY(std.data)
+
+    name   weight               tall
+A    : 1   Min.     : 43.00     Min.    : 150.0
+B    : 1   1st Qu.  : 50.25     1st Qu. : 153.0
+C    : 1   Median   : 54.25     Median  : 156.0
+D    : 1   Mean     : 56.12     Mean    : 156.4
+E    : 1   3rd Qu.  : 59.00     3rd Qu. : 160.0
+F    : 1   Max.     : 100.00    Max.    : 165.0

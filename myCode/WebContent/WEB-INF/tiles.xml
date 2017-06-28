@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+   
+ 
+    <definition name="main.definition" template="/WEB-INF/decorators/ptmainTemplate.jsp">
+        <put-attribute name="title" 	value="메인" />
+        <put-attribute name="header" 	value="/WEB-INF/decorators/headerContent.jsp" />
+        <put-attribute name="body" 		value="" />
+        <put-attribute name="footer" 	value="/WEB-INF/decorators/footerContent.jsp" />
+    </definition>
+
+
+    <definition name="/main" extends="main.definition">
+    	<put-attribute name="title" value="메인" />
+    	<put-attribute name="body" expression="/WEB-INF/views/main.jsp" />
+    </definition>
+
+  
+ 
+</tiles-definitions>

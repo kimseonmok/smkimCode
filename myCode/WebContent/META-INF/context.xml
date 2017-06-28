@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="" path="" reloadable="false" >
+
+   
+   <Resource 	auth="Container" 
+  					name="ds_mart" 
+  					type="javax.sql.DataSource" 
+  					driverClassName="oracle.jdbc.driver.OracleDriver" 
+  					username="WISEDA" 
+  					password="oracle" 
+  					url="jdbc:oracle:thin:@localhost:1521:orcl" 
+  					maxIdle="1" 
+  					maxWait="10000" 
+  					maxActive="5" /> 
+   
+   
+   <Resource 	auth="Container" 
+  					name="ds_wiseda" 
+  					type="javax.sql.DataSource" 
+  					driverClassName="oracle.jdbc.driver.OracleDriver" 
+  					username="WISEDA" 
+  					password="oracle" 
+  					url="jdbc:oracle:thin:@localhost:1521:orcl" 
+  					maxIdle="1" 
+  					maxWait="10000" 
+  					maxActive="5" />  
+    
+   
+        
+    <!--      	      
+  	<Resource 	auth="Container" 
+  					name="ds_wiseda" 
+  					type="javax.sql.DataSource" 
+  					driverClassName="oracle.jdbc.driver.OracleDriver" 
+  					username="METADA" 
+  					password="METADA" 
+  					url="jdbc:oracle:thin:@203.242.193.17:1521:pmis" 
+  					maxIdle="1" 
+  					maxWait="10000" 
+  					maxActive="5" /> 				
+   
+    -->
+  	   
+</Context>
