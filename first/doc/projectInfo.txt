@@ -1,0 +1,9 @@
+이클립스 : neon
+java : 1.8
+tomcat : 8
+
+
+
+git : https://github.com/kimseonmok/smkimCode.git
+id : smkim91@wise.co.kr
+pass : 2357power
