@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	메인입니다
+	<div class="container">
+		<div class="jumbotron">
+			<h1>연습 메인</h1>      
+			<p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+		</div>
+	</div>
 </body>
 </html>

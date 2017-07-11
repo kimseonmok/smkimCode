@@ -23,16 +23,23 @@
 <!-- 공통 스크립트 -->
 <script src="${contextPath}/resources/js/common.js"></script>
 
+<!-- 공통 스타일시트 -->
+<link rel="stylesheet" href="${contextPath}/resources/css/custom.css">
+
+<script type="text/javascript">
+	console.log("layout :: ${contextPath}");
+
+</script>
 
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="header">
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div class="container">
 		<tiles:insertAttribute name="main" />
 	</div>
-	<div class="container-fluid">
+	<div class="footer">
 		<tiles:insertAttribute name="footer" />
 	</div>
 </body>
