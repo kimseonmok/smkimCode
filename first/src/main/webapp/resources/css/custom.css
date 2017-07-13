@@ -6,6 +6,8 @@
 	
 }
 
+.header .navbar{border-radius:0px;}
+
 .footer{
 	
 }
@@ -14,3 +16,8 @@
 	max-width:400px;
 	margin:auto;
 }
+.joinForm{
+	max-width:400px;
+	margin:auto;
+}
+

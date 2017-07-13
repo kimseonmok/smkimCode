@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="member">
+
+
+	<resultMap id="loginDTO" type="smkim.member.dto.LoginDTO" >
+		<result property="mbrNum" column="mbr_num" />
+		<result property="mbrName" column="mbr_name" />
+		<result property="mbrId" column="mbr_id" />
+	</resultMap>
+
+
+     
+     <select id="idCheck" parameterType="smkim.member.dto.MemberDTO" resultType="int">
+    
+    	SELECT	count(mbr_name)
+		FROM	TBL_MBR 
+		WHERE MBR_DEL_CHK='N'
+		AND	MBR_NAME = #{mbrName}
+		
+    </select>
+    
+    
+    <insert id="insertMbr" parameterType="smkim.member.dto.MemberDTO">
+    	INSERT INTO TBL_MBR(MBR_NUM, MBR_NAME, MBR_JOIN_DATE, MBR_PWD, MBR_ID, MBR_DEL_CHK) 
+		VALUES((select lpad(nvl(count(mbr_num),0)+1,4,'0') from tbl_mbr), #{mbrName}, sysdate, #{mbrPwd}, #{mbrId}, 'N')
+    
+    </insert>
+    
+    
+    <select id="getMbrInfo" parameterType="smkim.member.dto.MemberDTO" resultMap="loginDTO">
+    
+    	SELECT	mbr_num,
+		mbr_name,
+		mbr_id
+		FROM	TBL_MBR
+		WHERE mbr_del_chk = 'N'
+		AND	mbr_pwd = #{mbrPwd}
+		AND	mbr_id = #{mbrId}
+
+	
+    </select>
+    
+     
+     
+</mapper>

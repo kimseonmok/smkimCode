@@ -7,6 +7,5 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>푸터</h3>
 </body>
 </html>

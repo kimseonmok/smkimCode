@@ -11,6 +11,7 @@
 		<put-attribute name="footer" value="/WEB-INF/jsp/layouts/footer.jsp" />
 	</definition> 
 	
+	
 	<definition name="/*/*" extends=".root">
 		<put-attribute name="main" value="/WEB-INF/jsp/{1}/{2}.jsp" />
 	</definition>

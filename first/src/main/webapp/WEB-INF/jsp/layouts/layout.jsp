@@ -11,6 +11,10 @@
 
 <c:set var="contextPath" value="<%= request.getContextPath()%>"></c:set>  
 
+<%
+	String contextPath = "${contextPath}";
+%>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="${contextPath}/resources/bootstrap/css/bootstrap.min.css">
 

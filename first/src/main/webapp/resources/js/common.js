@@ -16,8 +16,9 @@ function ajaxCall(url, param, callback) {
 	  	 if(request.status == 9999){                
 	  		 $("form").eq(0).attr("action",getContextPath+"/main.do").submit();
 	  	 }else{
-	  		alert("다시 시도하여 주시기 바랍니다.");
-	  		 //alert('에러발생...' + textStatus);
+//	  		alert("다시 시도하여 주시기 바랍니다.");
+	  		 console.log(request);
+	  		 alert('에러발생...' + textStatus);
 	  	 }
 	   }
 	});
