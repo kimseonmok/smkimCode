@@ -21,3 +21,20 @@
 	margin:auto;
 }
 
+.alignCenter{
+	text-align: center;
+}
+
+h2{
+    border-bottom: 1px solid rgba(72, 59, 88, 0.6);
+    padding-bottom:20px;
+}
+
+
+.brdTit{
+	font-size:20px;
+}
+
+.brdCont{
+	padding-top:20px;
+}

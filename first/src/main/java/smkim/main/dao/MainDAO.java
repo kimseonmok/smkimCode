@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository("mainDAO")
 public class MainDAO {
 	
-	protected Log log = LogFactory.getLog(MainDAO.class);
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Autowired
     private SqlSessionTemplate sqlSession;

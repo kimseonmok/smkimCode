@@ -3,7 +3,124 @@
  
 <mapper namespace="board">
 
+	<resultMap id="brdList" type="smkim.board.dto.BoardDTO">
+		<result property="rk" column="rk" />
+		<result property="brdNum" column="brd_num" />
+		<result property="mbrNum" column="mbr_num" />
+		<result property="mbrName" column="mbr_name" />
+		<result property="brdTit" column="brd_tit" />
+		<result property="brdCont" column="brd_cont" />
+		<result property="brdWriteDate" column="brd_write_date" />
+		<result property="brdDepth" column="brd_depth" />
+		<result property="brdParNum" column="brd_par_num" />
+		<result property="brdDelChk" column="brd_del_chk" />
+	</resultMap>
+	
+	<resultMap id="boardDetail" type="smkim.board.dto.BoardDTO">
+		<result property="brdNum" column="brd_num" />
+		<result property="mbrNum" column="mbr_num" />
+		<result property="mbrName" column="mbr_name" />
+		<result property="brdTit" column="brd_tit" />
+		<result property="brdCont" column="brd_cont" />
+		<result property="brdWriteDate" column="brd_write_date" />
+	</resultMap>
+	
+	<select id="getBoardList" parameterType="smkim.board.dto.BoardDTO" resultMap="brdList">
+	    SELECT * FROM
+		  (SELECT	
+		  ROW_NUMBER() OVER(ORDER BY BRD_NUM  DESC) AS RK,
+	     BRD_NUM,
+		MBR_NUM,
+		(SELECT MBR_NAME FROM TBL_MBR M WHERE B.MBR_NUM = M.MBR_NUM) AS MBR_NAME,
+		BRD_TIT,
+		BRD_CONT,
+		BRD_WRITE_DATE,
+		BRD_DEPTH,
+		BRD_PAR_NUM,
+		BRD_DEL_CHK
+	FROM	TBL_BRD B
+	WHERE	1=1 
+	<if test="brdTit!=null">
+	AND	BRD_TIT like '%' ||  #{brdTit} || '%'
+	</if>
+	<if test="brdCont!=null">
+	AND	BRD_CONT like '%' ||  #{brdCont} || '%'
+	</if>
+	AND	BRD_DEL_CHK = 'N')
+    WHERE RK BETWEEN #{pageSize}*(#{pageNum}-1) + 1 and #{pageSize}*(#{pageNum})
+	     
+	     
+	     </select>
+
+
+	<insert id="insertBoard" parameterType="smkim.board.dto.BoardDTO">
+		INSERT INTO TBL_BRD(brd_num, mbr_num, brd_tit, brd_cont, brd_write_date, brd_del_chk) 
+		VALUES((select lpad(nvl(count(brd_num),0)+1,8,'0') from TBL_BRD), #{mbrNum}, #{brdTit}, #{brdCont}, sysdate, 'N')
+     </insert>
      
+     
+     
+     
+     <update id="updateBoard" parameterType="smkim.board.dto.BoardDTO">
+     
+     UPDATE	TBL_BRD 
+		SET	brd_num = #{brdNum},
+			mbr_num = #{mbrNum},
+			brd_tit = #{brdTit},
+			brd_cont = #{brdCont},
+			brd_write_date = #{brdWriteDate},
+			brd_depth = #{brdDepth},
+			brd_par_num = #{brdParNum},
+			brd_del_chk = #{brdDelChk}
+		WHERE	brd_num = #{brdNum}
+		AND	mbr_num = #{mbrNum}
+		AND	brd_tit = #{brdTit}
+		AND	brd_cont = #{brdCont}
+		AND	brd_write_date = #{brdWriteDate}
+		AND	brd_depth = #{brdDepth}
+		AND	brd_par_num = #{brdParNum}
+		AND	brd_del_chk = #{brdDelChk}
+		     
+     
+     </update>
+     
+     
+     <update id="updateBoardDelChk" parameterType="smkim.board.dto.BoardDTO">
+     
+     UPDATE	TBL_BRD 
+		SET	brd_num = #{brdNum},
+			mbr_num = #{mbrNum},
+			brd_tit = #{brdTit},
+			brd_cont = #{brdCont},
+			brd_write_date = #{brdWriteDate},
+			brd_depth = #{brdDepth},
+			brd_par_num = #{brdParNum},
+			brd_del_chk = #{brdDelChk}
+		WHERE	brd_num = #{brdNum}
+		AND	mbr_num = #{mbrNum}
+		AND	brd_tit = #{brdTit}
+		AND	brd_cont = #{brdCont}
+		AND	brd_write_date = #{brdWriteDate}
+		AND	brd_depth = #{brdDepth}
+		AND	brd_par_num = #{brdParNum}
+		AND	brd_del_chk = #{brdDelChk}
+     
+     
+     </update>
+     
+     
+     
+     <select id="getBoardDetail" parameterType="java.lang.String" resultMap="boardDetail">
+     	SELECT	BRD_NUM,
+			MBR_NUM,
+			(SELECT MBR_NAME FROM TBL_MBR M WHERE B.MBR_NUM = M.MBR_NUM) AS MBR_NAME,
+			BRD_TIT,
+			BRD_CONT,
+			BRD_WRITE_DATE
+		FROM	TBL_BRD B
+		WHERE	BRD_NUM = #{brdNum}
+		AND	BRD_DEL_CHK = 'N'
+     </select>
      
      
 </mapper>

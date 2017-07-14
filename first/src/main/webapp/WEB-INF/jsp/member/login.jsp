@@ -76,11 +76,11 @@
 	
 			<div class="form-group">
 				<label for="usr">아이디:</label>
-				<input type="text" class="form-control" id="usr" name="mbrId">
+				<input type="text" class="form-control" id="usr" name="mbrId" value="smkim91">
 			</div>
 			<div class="form-group">
 				<label for="pwd">비밀번호:</label>
-				<input type="password" class="form-control" id="pwd" name="mbrPwd">
+				<input type="password" class="form-control" id="pwd" name="mbrPwd" value="1234">
 			</div>
 			<div class="checkbox">
 		        <label><input type="checkbox">아이디를 기억합니다</label>

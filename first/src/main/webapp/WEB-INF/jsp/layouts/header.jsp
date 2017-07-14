@@ -13,17 +13,33 @@
 <%
 	LoginDTO loginDTO = new LoginDTO();
 	
+    //로그인 세션 가져오기
 	if(session.getAttribute("loginDTO") != null){
 		loginDTO = (LoginDTO)session.getAttribute("loginDTO");
 		System.out.println("로그인됨 :: " + loginDTO.getMbrName());
 	}
 	
+    //메뉴 클릭 
+	String path[] = (request.getAttribute("javax.servlet.forward.servlet_path")+"").split("/");
+	String path2[] = path[1].split("\\.");
+	String menu = path2[0]; 
+	System.out.println(menu);
 
 %>
 
 <script type="text/javascript">
-	console.log("header :: ${contextPath}");
 	
+	
+	
+	$(document).ready(function() {    
+		
+		console.log("header :: ${contextPath}");
+		console.log("${menu}");
+		
+		
+		$("#<%=menu%>").attr('class','active');
+
+	});
 	
 	
 
@@ -43,14 +59,14 @@
 	      <a class="navbar-brand" href="#">WebSiteName</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="${contextPath}">Home</a></li>
-	        <li><a href="${contextPath}/board/boardListPage.do">게시판</a></li>
+	      <ul class="nav navbar-nav headerList">
+	        <li id="index"><a href="${contextPath}">Home</a></li>
+	        <li id="board"><a href="${contextPath}/board/boardListPage.do">게시판</a></li>
 	        <li><a href="#">Page 2</a></li> 
 	        <li><a href="#">Page 3</a></li> 
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	      	<c:if test="${empty loginDTO.mbrName}">
+	      	<c:if test="${empty loginDTO.mbrName}"> 
 		        <li><a href="${contextPath}/member/joinPage.do"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 		        <li><a href="${contextPath}/member/loginPage.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	        </c:if>
@@ -75,7 +91,7 @@
 	        <h4 class="modal-title">알림</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p id="modalText">Some text in the modal.</p>
+	        <p id="modalText" event="">Some text in the modal.</p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

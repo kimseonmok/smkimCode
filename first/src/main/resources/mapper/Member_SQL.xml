@@ -22,7 +22,7 @@
     </select>
     
     
-    <insert id="insertMbr" parameterType="smkim.member.dto.MemberDTO">
+    <insert id="insertMbr" parameterType="smkim.member.dto.MemberDTO" >
     	INSERT INTO TBL_MBR(MBR_NUM, MBR_NAME, MBR_JOIN_DATE, MBR_PWD, MBR_ID, MBR_DEL_CHK) 
 		VALUES((select lpad(nvl(count(mbr_num),0)+1,4,'0') from tbl_mbr), #{mbrName}, sysdate, #{mbrPwd}, #{mbrId}, 'N')
     

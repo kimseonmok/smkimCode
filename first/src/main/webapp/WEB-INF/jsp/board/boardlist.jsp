@@ -10,6 +10,12 @@
 
 <script type="text/javascript">
 
+	$(document).ready(function() {    
+		doAction('search');
+		
+	});
+	
+
 	function doAction(action){
 		
 		var formObj = $("#mainFrm");
@@ -18,17 +24,46 @@
 		var url="";
 		
 		switch(action){
-			case 'join':
-				break;
-			case 'idCheck':
+			case 'search':
 				
+				param = formObj.serialize();
+				url = "${contextPath}/board/getBoardList.do";
+				
+				ajaxCall(url, param, callbackList);
+				break;
+			case 'write':
+				
+				url = "${contextPath}/board/boardWritePage.do";
+				location.href=url;
 				
 				break;
+				
 			default:
 				break;
 		
 		}
 		
+	}
+	
+	function callbackList(data){
+		
+		var tbodyAppend = "";
+		
+		for(var i=0;i<data.list.length;i++){
+			tbodyAppend+="<tr onclick=\"goDetail('"+data.list[i].brdNum+"');\">";
+			tbodyAppend+="  <td>"+data.list[i].rk+"</td>";
+			tbodyAppend+="  <td>"+data.list[i].brdTit+"</td>";
+			tbodyAppend+="  <td>"+data.list[i].mbrName+"</td>";
+			tbodyAppend+="  <td>"+data.list[i].brdWriteDate+"</td>";
+			tbodyAppend+="</tr>";
+		}
+		
+		$("#tbody").empty().append(tbodyAppend);
+		
+	}
+	
+	function goDetail(brdNum){
+		location.href="${contextPath}/board/boardDetailPage.do?brdNum="+brdNum;
 	}
 	
 	function validation(formObj){
@@ -43,9 +78,53 @@
 
 </head>
 <body>
+
+	
+ 
 	<div class="boardListForm">
 		<form name="mainFrm" id="mainFrm" >
-	
+			<input type="hidden" name="pageSize" value="10"/>
+			<input type="hidden" name="pageNum" value="1"/>
+			
+		 
+			<h2>게시판</h2>
+		    <p>글쓰기, 댓글, 답글, 파일첨부</p>    
+		    
+		    
+		    <div class="input-group">
+				<input type="text" class="form-control" placeholder="제목 + 내용">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="button"> 
+						검색 
+					</button> 
+				</div>
+				
+				
+			</div>
+		    
+		            
+		    <table class="table table-striped table-hover table-responsive">   
+		      <thead>
+		        <tr>
+		          <th>번호</th>
+		          <th>제목</th>
+		          <th>작성자</th>
+		          <th>작성날짜</th>
+		        </tr>
+		      </thead>
+		      <tbody id="tbody">
+		       
+		       
+		      </tbody> 
+		      <tfoot>
+		      	  <tr>
+				      <td colspan="3" class="alignCenter"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('write');">글쓰기</button></td>
+			      </tr>
+		      </tfoot>
+		    </table>
+		    
+			
+
 		</form>
 	</div>
 	

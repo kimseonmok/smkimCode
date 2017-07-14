@@ -13,7 +13,7 @@ import smkim.member.dto.MemberDTO;
 @Repository("memberDAO")
 public class MemberDAO {
 	
-	protected Log log = LogFactory.getLog(MainDAO.class);
+	protected Log log = LogFactory.getLog(MemberDAO.class);
 
 	@Autowired
     private SqlSessionTemplate sqlSession;

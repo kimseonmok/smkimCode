@@ -10,6 +10,25 @@
 
 <script type="text/javascript">
 
+	$(document).ready(function() {    
+		
+		
+		
+		$("#commonModal").on('hidden.bs.modal',function(data){
+			var event = $("#modalText").attr("event");
+			$("#modalText").attr("event","");
+			console.log(event);
+			
+			if(event=="goMain"){
+	 			location.href="${contextPath}";
+			}
+			
+			
+		});
+	
+		
+	});
+
 	function doAction(action){
 		
 		var formObj = $("#mainFrm");
@@ -49,19 +68,21 @@
 	
 	function callbackJoin(data){
 		if(data.flag){
-			alert("회원가입이 완료되었습니다");
+			$("#modalText").empty().text("회원가입이 완료되었습니다");
+			$("#modalBnt").trigger('click');
+			$("#modalText").attr("event","goMain");
 		}else{
-			alert("회원가입에 실패했습니다");
+			$("#modalText").empty().text("회원가입에 실패했습니다");
+			$("#modalBnt").trigger('click');
 		}
 	}
 	
 	function callbackIdCheck(data){
 		if(!data.flag){
-			alert("중복된 아이디가 있습니다");
+			$("#modalText").empty().text("중복된 아이디가 있습니다");
+			$("#modalBnt").trigger('click');
 		}else{
-			if(confirm("회원가입을 진행하시겠습니까?")){
-				doAction('join');
-			};
+			doAction('join');
 		}
 	}
 	
@@ -74,18 +95,20 @@
 		
 		
 		if(mbrId==""){
-			alert('아이디를 입력해 주세요');
+			$("#modalText").empty().text("아이디를 입력해 주세요");
 		}else if(mbrPwd==""){
-			alert('비밀번호를 입력해 주세요');
+			$("#modalText").empty().text("비밀번호를 입력해 주세요");
 		}else if(mbrPwd_check==""){
-			alert('비밀번호 확인을 입력해 주세요');
+			$("#modalText").empty().text("비밀번호 확인을 입력해 주세요");
 		}else if(mbrName==""){
-			alert('이름을 입력해 주세요');
+			$("#modalText").empty().text("이름을 입력해 주세요");
 		}else if(mbrPwd_check!=mbrPwd){
-			alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+			$("#modalText").empty().text("비밀번호와 비밀번호 확인이 일치하지 않습니다");
 		}else{
 			return false;
 		}
+		
+		$("#modalBnt").trigger('click');
 		
 		return true;
 	}
