@@ -35,4 +35,9 @@ public class BoardDAO {
 		return sqlSession.selectOne(namespace + "getBoardDetail", brdNum);
 	}
 
+
+	public int updateBoard(BoardDTO boardDTO) {
+		return sqlSession.insert(namespace + "updateBoard",boardDTO);
+	}
+
 }

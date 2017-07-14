@@ -36,4 +36,14 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.getBoardDetail(brdNum);
 	}
 
+	@Override
+	public boolean updateBoard(BoardDTO boardDTO) throws Exception {
+		int resultCnt = boardDAO.updateBoard(boardDTO);
+		if(resultCnt>0){
+			return true;
+		}
+		
+		return false;
+	}
+
 }

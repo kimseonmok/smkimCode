@@ -42,7 +42,13 @@
 			case 'save':
 				
 				param = formObj.serialize();
-				url = "${contextPath}/board/insertBoard.do";
+				var brdNum = formObj.find("input[name=brdNum]").val();
+				if(brdNum==''){
+					url = "${contextPath}/board/insertBoard.do";
+				}else{
+					url = "${contextPath}/board/updateBoard.do";
+				}
+				
 				
 				ajaxCall(url, param, callbackSave);
 				break;
@@ -84,19 +90,19 @@
 
 	<div class="boardListForm">
 		<form name="mainFrm" id="mainFrm" >
-		
-		 
+			<input type='hidden' name="brdNum" value="${boardDTO.brdNum }"/>
+		 	<input type="hidden" name="mbrNum" value="${boardDTO.mbrNum }"/>
 			<h2>게시글 작성</h2>
 		    
 		    <div class="form-group">
 				<label for="usr">제목:</label>
-				<input type="text" class="form-control" id="" name="brdTit">
+				<input type="text" class="form-control" id="" name="brdTit" value="${boardDTO.brdTit }">
 			</div>
 			 <div class="form-group">
 				<label for="usr">내용:</label>
-				<textArea class="form-control" rows="10" name="brdCont"></textArea>
+				<textArea class="form-control" rows="10" name="brdCont" >${boardDTO.brdCont }</textArea>
 			</div>
-			  <div class="alignCenter"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('save');">글쓰기</button></div>
+			  <div class="alignRight"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('save');">저장</button></div>
 			
 
 		</form>

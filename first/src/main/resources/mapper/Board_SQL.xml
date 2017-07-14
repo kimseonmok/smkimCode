@@ -61,22 +61,12 @@
      <update id="updateBoard" parameterType="smkim.board.dto.BoardDTO">
      
      UPDATE	TBL_BRD 
-		SET	brd_num = #{brdNum},
-			mbr_num = #{mbrNum},
-			brd_tit = #{brdTit},
-			brd_cont = #{brdCont},
-			brd_write_date = #{brdWriteDate},
-			brd_depth = #{brdDepth},
-			brd_par_num = #{brdParNum},
-			brd_del_chk = #{brdDelChk}
+		SET	brd_tit = #{brdTit},
+			brd_cont = #{brdCont}
+			
 		WHERE	brd_num = #{brdNum}
 		AND	mbr_num = #{mbrNum}
-		AND	brd_tit = #{brdTit}
-		AND	brd_cont = #{brdCont}
-		AND	brd_write_date = #{brdWriteDate}
-		AND	brd_depth = #{brdDepth}
-		AND	brd_par_num = #{brdParNum}
-		AND	brd_del_chk = #{brdDelChk}
+		AND	brd_del_chk = 'N'
 		     
      
      </update>

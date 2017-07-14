@@ -12,4 +12,6 @@ public interface BoardService {
 
 	BoardDTO getBoardDetail(String brdNum) throws Exception;
 
+	boolean updateBoard(BoardDTO boardDTO) throws Exception;
+
 }

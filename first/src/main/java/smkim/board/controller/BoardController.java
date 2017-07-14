@@ -47,8 +47,19 @@ public class BoardController {
     }
 
     @RequestMapping(value="/board/boardWritePage.do")
-    public ModelAndView boardWritePage() throws Exception{
+    public ModelAndView boardWritePage(String brdNum) throws Exception{
         ModelAndView mv = new ModelAndView("/board/boardwrite");
+        
+        BoardDTO boardDTO;
+        
+        if(brdNum==null || brdNum.equals("")){
+        	boardDTO = new BoardDTO();
+        }else{
+        	boardDTO = boardService.getBoardDetail(brdNum);
+        }
+        
+        
+        mv.addObject("boardDTO", boardDTO);
         
         return mv;
     }
@@ -74,6 +85,23 @@ public class BoardController {
     	
         return map;
     }
+    
+    @RequestMapping(value="/board/updateBoard.do")
+    @ResponseBody
+    public Map<String,Object> updateBoard(BoardDTO boardDTO) throws Exception{
+    	
+    	Map<String,Object> map = new HashMap<String,Object>();
+    	
+    	log.debug(boardDTO);
+    	
+    	boolean flag = boardService.updateBoard(boardDTO);
+    	
+    	map.put("flag", flag);
+    	
+    	
+        return map;
+    }
+    
     
     
     @RequestMapping(value="/board/boardDetailPage.do")

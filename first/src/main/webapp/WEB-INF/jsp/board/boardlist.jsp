@@ -124,7 +124,7 @@
 		      </tbody> 
 		      <tfoot>
 		      	  <tr>
-				      <td colspan="4" class="alignCenter"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('write');">글쓰기</button></td>
+				      <td colspan="4" class="alignRight"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('write');">글쓰기</button></td>
 			      </tr>
 		      </tfoot>
 		    </table>
