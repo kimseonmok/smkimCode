@@ -40,11 +40,8 @@
 		BRD_DEL_CHK
 	FROM	TBL_BRD B
 	WHERE	1=1 
-	<if test="brdTit!=null">
-	AND	BRD_TIT like '%' ||  #{brdTit} || '%'
-	</if>
-	<if test="brdCont!=null">
-	AND	BRD_CONT like '%' ||  #{brdCont} || '%'
+	<if test="searchWord != null">
+	AND	(BRD_TIT like '%' ||  #{searchWord} || '%'   OR  BRD_CONT like '%' ||  #{searchWord} || '%'          )
 	</if>
 	AND	BRD_DEL_CHK = 'N')
     WHERE RK BETWEEN #{pageSize}*(#{pageNum}-1) + 1 and #{pageSize}*(#{pageNum})
@@ -55,7 +52,7 @@
 
 	<insert id="insertBoard" parameterType="smkim.board.dto.BoardDTO">
 		INSERT INTO TBL_BRD(brd_num, mbr_num, brd_tit, brd_cont, brd_write_date, brd_del_chk) 
-		VALUES((select lpad(nvl(count(brd_num),0)+1,8,'0') from TBL_BRD), #{mbrNum}, #{brdTit}, #{brdCont}, sysdate, 'N')
+		VALUES((select lpad(nvl(max(brd_num),0)+1,8,'0') from TBL_BRD), #{mbrNum}, #{brdTit}, #{brdCont}, sysdate, 'N')
      </insert>
      
      

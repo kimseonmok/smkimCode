@@ -16,7 +16,7 @@ public class BoardDTO {
 	private String rk;
 	
 	
-	
+	private String searchWord;
 	
 	public String getPageSize() {
 		return pageSize;
@@ -95,6 +95,12 @@ public class BoardDTO {
 	}
 	public void setRk(String rk) {
 		this.rk = rk;
+	}
+	public String getSearchWord() {
+		return searchWord;
+	}
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
 	}
 	
 	

@@ -13,6 +13,12 @@
 	$(document).ready(function() {    
 		doAction('search');
 		
+		$("input[name=searchWord]").keydown(function (key) {
+	        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+	        	doAction('search');
+	        }
+	    });
+		
 	});
 	
 
@@ -82,7 +88,7 @@
 	
  
 	<div class="boardListForm">
-		<form name="mainFrm" id="mainFrm" >
+		<form name="mainFrm" id="mainFrm" onsubmit='return false'>
 			<input type="hidden" name="pageSize" value="10"/>
 			<input type="hidden" name="pageNum" value="1"/>
 			
@@ -92,9 +98,9 @@
 		    
 		    
 		    <div class="input-group">
-				<input type="text" class="form-control" placeholder="제목 + 내용">
+				<input type="text" class="form-control" placeholder="제목 + 내용" name="searchWord">
 				<div class="input-group-btn">
-					<button class="btn btn-default" type="button"> 
+					<button class="btn btn-default" type="button" onclick="doAction('search');"> 
 						검색 
 					</button> 
 				</div>
@@ -118,7 +124,7 @@
 		      </tbody> 
 		      <tfoot>
 		      	  <tr>
-				      <td colspan="3" class="alignCenter"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('write');">글쓰기</button></td>
+				      <td colspan="4" class="alignCenter"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('write');">글쓰기</button></td>
 			      </tr>
 		      </tfoot>
 		    </table>

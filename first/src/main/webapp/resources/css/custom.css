@@ -22,7 +22,8 @@
 }
 
 .alignCenter{
-	text-align: center;
+	text-align: right;
+/* 	width:100%; */
 }
 
 h2{
