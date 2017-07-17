@@ -14,4 +14,6 @@ public interface BoardService {
 
 	boolean updateBoard(BoardDTO boardDTO) throws Exception;
 
+	int getBoardListCnt(BoardDTO boardDTO) throws Exception;
+
 }

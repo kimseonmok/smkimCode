@@ -71,7 +71,8 @@
 		        <li><a href="${contextPath}/member/loginPage.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	        </c:if>
 	        <c:if test="${!empty loginDTO.mbrName }">
-	        	<p class="navbar-text">안녕하세요  ${loginDTO.mbrName} 님!</p>
+	        	<li><p class="navbar-text"> 안녕하세요  ${loginDTO.mbrName} 님!</p></li>
+	        	<li><a href="${contextPath}/member/logOut.do"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
 	        </c:if>
 	      </ul>
 	    </div>

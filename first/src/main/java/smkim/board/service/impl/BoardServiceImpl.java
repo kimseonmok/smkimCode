@@ -19,6 +19,11 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardDTO> getBoardList(BoardDTO boardDTO) throws Exception{
 		return boardDAO.getBoardList(boardDTO);
 	}
+	
+	@Override
+	public int getBoardListCnt(BoardDTO boardDTO) throws Exception {
+		return  boardDAO.getBoardListCnt(boardDTO);
+	}
 
 	@Override
 	public boolean insertBoard(BoardDTO boardDTO) throws Exception {
@@ -45,5 +50,7 @@ public class BoardServiceImpl implements BoardService{
 		
 		return false;
 	}
+
+
 
 }

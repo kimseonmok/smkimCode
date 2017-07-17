@@ -53,6 +53,15 @@
 	
 	function callbackList(data){
 		
+		var formObj = $("#mainFrm");
+		
+		var pageSize = formObj.find("input[name=pageSize]").val();
+		var pageNum = formObj.find("input[name=pageNum]").val();
+		var totalCnt=data.listCnt;
+		formObj.find("input[name=totalCnt]").val(totalCnt);
+		
+		console.log("pageSize : "+pageSize + "pageNum : " + pageNum);
+		
 		var tbodyAppend = "";
 		
 		for(var i=0;i<data.list.length;i++){
@@ -64,12 +73,42 @@
 			tbodyAppend+="</tr>";
 		}
 		
+		var paging = "";
+		paging +="<ul class='pagination '>";
+		paging +="<li><a href='#'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
+		for(var i=1;i<=totalCnt/pageSize+1;i++){ 
+			paging +="<li><a  onClick=\"pageMove('"+i+"');\" href='#'>"+i+"</a></li>";
+		} 
+		paging +="<li><a href='#'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
+		paging +="</ul>";
+		
+		
+		var paging_mobile = "";
+		paging_mobile += "<div class='btn-group btn-group-justified'>";
+		paging_mobile += "<a href='#' class='btn btn-primary'>이전</button>";
+		paging_mobile += "<a href='#' class='btn btn-primary'>다음</button>";
+		paging_mobile += "</div>";
+		
+		  
+		  
+		
+		
+		
+		
+		$("#paging_mobile").empty().append(paging_mobile);
+		$("#paging").empty().append(paging);
 		$("#tbody").empty().append(tbodyAppend);
 		
-	}
+	} 
 	
 	function goDetail(brdNum){
 		location.href="${contextPath}/board/boardDetailPage.do?brdNum="+brdNum;
+	}
+	
+	function pageMove(pageNum){
+		var formObj = $("#mainFrm");
+		formObj.find("input[name=pageNum]").val(pageNum);
+		doAction('search');
 	}
 	
 	function validation(formObj){
@@ -91,6 +130,7 @@
 		<form name="mainFrm" id="mainFrm" onsubmit='return false'>
 			<input type="hidden" name="pageSize" value="10"/>
 			<input type="hidden" name="pageNum" value="1"/>
+			<input type="hidden" name="totalCnt" value=""/>
 			
 		 
 			<h2>게시판</h2>
@@ -122,17 +162,18 @@
 		       
 		       
 		      </tbody> 
-		      <tfoot>
-		      	  <tr>
-				      <td colspan="4" class="alignRight"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('write');">글쓰기</button></td>
-			      </tr>
-		      </tfoot>
+		     
+				    
+			
 		    </table>
 		    
+		    <div class="alignRight"><button class="btn btn-default" type="button" id="btnWrite" onclick="doAction('write');">글쓰기</button></div>
+			<div id="paging" class="paging"></div>
+			<div id="paging_mobile" class="paging_mobile"></div>
 			
-
 		</form>
 	</div>
-	
+		
+		
 </body>
 </html>

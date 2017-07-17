@@ -12,13 +12,20 @@
 	
 }
 
+.onlymain{
+	background-color: #eaf4f9;
+	height: 100%
+}
+
 .loginForm{
 	max-width:400px;
 	margin:auto;
+	padding-top:100px;
 }
 .joinForm{
 	max-width:400px;
 	margin:auto;
+	padding-top:100px;
 }
 
 .alignRight{
@@ -36,6 +43,39 @@ h2{
 	font-size:20px;
 }
 
-.brdCont{
+.brdCont{ 
 	padding-top:20px;
+}
+
+.paging_mobile{
+	display:none;
+}
+
+.paging{
+	display:block;
+	text-align:center;
+}
+
+.paging ul{
+ 
+}
+
+.paging ul li a{
+	height:32px;
+}
+
+
+
+@media screen and (max-width: 765px) {
+	
+.paging{
+	display:none;
+}          
+.paging_mobile{
+	display:block;
+	width:100%;
+	margin-top:20px;
+}
+
+
 }

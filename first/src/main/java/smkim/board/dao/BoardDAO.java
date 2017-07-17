@@ -24,6 +24,11 @@ public class BoardDAO {
 	public List<BoardDTO> getBoardList(BoardDTO boardDTO) {
 		return sqlSession.selectList(namespace + "getBoardList",boardDTO);
 	}
+	
+
+	public int getBoardListCnt(BoardDTO boardDTO) {
+		return sqlSession.selectOne(namespace + "getBoardListCnt",boardDTO);
+	}
 
 
 	public int insertBoard(BoardDTO boardDTO) {
@@ -39,5 +44,7 @@ public class BoardDAO {
 	public int updateBoard(BoardDTO boardDTO) {
 		return sqlSession.insert(namespace + "updateBoard",boardDTO);
 	}
+
+
 
 }

@@ -48,6 +48,19 @@
 	     
 	     
 	     </select>
+	     
+	     <select id="getBoardListCnt" parameterType="smkim.board.dto.BoardDTO" resultType="int">
+	    SELECT	
+		  count(1)
+		FROM	TBL_BRD B
+		WHERE	1=1 
+		<if test="searchWord != null">
+		AND	(BRD_TIT like '%' ||  #{searchWord} || '%'   OR  BRD_CONT like '%' ||  #{searchWord} || '%'          )
+		</if>
+		AND	BRD_DEL_CHK = 'N'
+  
+	     
+	     </select>
 
 
 	<insert id="insertBoard" parameterType="smkim.board.dto.BoardDTO">

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +80,14 @@ public class MemberController {
         
         return map;
     }
+    
+    @RequestMapping(value="/member/logOut.do")
+    public String logOut(HttpSession session) throws Exception{
+        session.invalidate();
+        return "redirect:/main.do";
+    }
+    
+    
     
     
     

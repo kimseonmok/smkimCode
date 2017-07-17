@@ -39,8 +39,9 @@ public class BoardController {
     	Map<String,Object> map = new HashMap<String,Object>();
     	
     	List<BoardDTO> list = boardService.getBoardList(boardDTO);
-    	
+    	int listCnt = boardService.getBoardListCnt(boardDTO);
     	map.put("list", list);
+    	map.put("listCnt", listCnt);
     	
     	
         return map;
