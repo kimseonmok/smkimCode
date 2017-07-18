@@ -9,6 +9,23 @@
 <title>로그인</title>
 
 <script type="text/javascript">
+
+	$(document).ready(function() {    
+		
+		$("input[name=mbrPwd]").keydown(function (key) {
+	        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+	        	doAction('login');
+	        }
+	    });
+		
+		$("input[name=mbrId]").keydown(function (key) {
+	        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+	        	doAction('login');
+	        }
+	    });
+		
+	});
+
 	function doAction(action){
 		
 		var formObj = $("#mainFrm");
@@ -20,9 +37,9 @@
 			case 'login':
 				param = formObj.serialize();
 				url="${contextPath}/member/login.do"
-				validation(formObj);
-				ajaxCall(url, param, callbackLogin);
-				
+				if(validation(formObj)){
+					ajaxCall(url, param, callbackLogin); 
+				}
 				break;
 		
 			default:
@@ -76,11 +93,11 @@
 	
 			<div class="form-group">
 				<label for="usr">아이디:</label>
-				<input type="text" class="form-control" id="usr" name="mbrId" value="smkim91">
+				<input type="text" class="form-control" id="usr" name="mbrId" value="">
 			</div>
 			<div class="form-group">
 				<label for="pwd">비밀번호:</label>
-				<input type="password" class="form-control" id="pwd" name="mbrPwd" value="1234">
+				<input type="password" class="form-control" id="pwd" name="mbrPwd" value="">
 			</div>
 			<div class="checkbox">
 		        <label><input type="checkbox">아이디를 기억합니다</label>
@@ -88,6 +105,8 @@
 		    <button type="button" class="btn btn-primary btn-block" onclick="doAction('login');">로그인</button>
 	    </form>
 	</div>
+	
+	<%@include file="../layouts/footer.jsp" %> 
 
 </body>
 </html>

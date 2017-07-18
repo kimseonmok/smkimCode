@@ -58,40 +58,82 @@
 		var pageSize = formObj.find("input[name=pageSize]").val();
 		var pageNum = formObj.find("input[name=pageNum]").val();
 		var totalCnt=data.listCnt;
+		var pageCnt = parseInt(totalCnt/pageSize)+1;
+		
+		var startPage=pageNum*1-5;
+		var endPage=pageNum*1+5;
+		
 		formObj.find("input[name=totalCnt]").val(totalCnt);
 		
-		console.log("pageSize : "+pageSize + "pageNum : " + pageNum);
+		if(startPage<=1){
+			startPage=1;
+		}
+		if(endPage>=pageCnt){ 
+			endPage=pageCnt;
+			startPage=endPage-10;
+		}else{
+			endPage=startPage+10;
+		}
 		
+		console.log("pageCnt : "+pageCnt + " pageNum : " + pageNum);
+		console.log("startPage : "+startPage + " endPage : " + endPage);
+		 
 		var tbodyAppend = "";
 		
-		for(var i=0;i<data.list.length;i++){
-			tbodyAppend+="<tr onclick=\"goDetail('"+data.list[i].brdNum+"');\">";
-			tbodyAppend+="  <td>"+data.list[i].rk+"</td>";
-			tbodyAppend+="  <td>"+data.list[i].brdTit+"</td>";
-			tbodyAppend+="  <td>"+data.list[i].mbrName+"</td>";
-			tbodyAppend+="  <td>"+data.list[i].brdWriteDate+"</td>";
-			tbodyAppend+="</tr>";
-		}
+		for(var i=0;i<10;i++){
+			if(data.list[i]!=null){
+				tbodyAppend+="<tr onclick=\"goDetail('"+data.list[i].brdNum+"');\">";
+				tbodyAppend+="  <td>"+data.list[i].rk+"</td>";
+				tbodyAppend+="  <td>"+data.list[i].brdTit+"</td>";
+				tbodyAppend+="  <td>"+data.list[i].mbrName+"</td>";
+				tbodyAppend+="  <td>"+data.list[i].brdWriteDate+"</td>";
+				tbodyAppend+="</tr>";
+			}else{
+				tbodyAppend+="<tr>";
+				tbodyAppend+="  <td colspan='4'></td>";
+				tbodyAppend+="</tr>";
+				console.log("아아아");
+			}
+		}        
 		
 		var paging = "";
 		paging +="<ul class='pagination '>";
-		paging +="<li><a href='#'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
-		for(var i=1;i<=totalCnt/pageSize+1;i++){ 
-			paging +="<li><a  onClick=\"pageMove('"+i+"');\" href='#'>"+i+"</a></li>";
+		
+		if(pageNum>10){
+			paging +="<li><a href='#' onClick=\"pageMove('"+(pageNum*1-10)+"');\"><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
+		}else{
+			paging +="<li><a href='#' onClick=\"pageMove('"+(1)+"');\"><span class='glyphicon glyphicon-chevron-left'></span></a></li>";	
+		}
+		
+		for(var i=startPage;i<=endPage;i++){ 
+			paging +="<li";
+			if(pageNum==i){
+				paging += " class='active' ";
+			}
+			paging +="><a onClick=\"pageMove('"+i+"');\" href='#'>"+i+"</a></li>";
+			
 		} 
-		paging +="<li><a href='#'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
+		
+		if(pageNum<pageCnt-10){
+			paging +="<li><a href='#' onClick=\"pageMove('"+(pageNum*1+10)+"');\"><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
+		}else{
+			paging +="<li><a href='#' onClick=\"pageMove('"+(pageCnt)+"');\"><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
+		}
 		paging +="</ul>";
 		
 		
 		var paging_mobile = "";
 		paging_mobile += "<div class='btn-group btn-group-justified'>";
-		paging_mobile += "<a href='#' class='btn btn-primary'>이전</button>";
-		paging_mobile += "<a href='#' class='btn btn-primary'>다음</button>";
+		if(pageNum>1){
+			paging_mobile += "<a href='#' class='btn btn-primary' onClick=\"pageMove('"+(pageNum*1-1)+"');\">이전</button>";
+		}
+		if(pageNum<+1){
+			paging_mobile += "<a href='#' class='btn btn-primary' onClick=\"pageMove('"+(pageNum*1+1)+"');\">다음</button>";
+		}		
 		paging_mobile += "</div>";
 		
 		  
-		  
-		
+		 
 		
 		
 		
@@ -150,6 +192,12 @@
 		    
 		            
 		    <table class="table table-striped table-hover table-responsive">   
+		      <colgroup>
+			    <col style="width: 10%;"/>
+			    <col style="width: 50%;"/>
+			    <col style="width: 20%;"/>
+			    <col style="width: 30%;"/>
+			  </colgroup>
 		      <thead>
 		        <tr>
 		          <th>번호</th>

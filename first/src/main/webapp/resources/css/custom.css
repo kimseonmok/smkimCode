@@ -28,6 +28,10 @@
 	padding-top:100px;
 }
 
+.boardListForm td{
+	height:40px;
+}
+
 .alignRight{
 	text-align: right;
 /* 	width:100%; */
@@ -62,6 +66,7 @@ h2{
 
 .paging ul li a{
 	height:32px;
+	width:40px;
 }
 
 
